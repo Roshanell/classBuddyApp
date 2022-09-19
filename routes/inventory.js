@@ -5,12 +5,12 @@ const inventoryController = require("../controllers/inventory");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //Post Routes - simplified for now
-router.get("/:id", ensureAuth, inventoryController.getInventory);
+router.get("/:id", ensureAuth, inventoryController.getInventoryItem);
 
-router.post("/createInventory", upload.single("file"), inventoryController.createInventory);
+router.post("/createInventory", upload.single("file"), inventoryController.createInventoryItem);
 
-router.put("/likeInventory/:id", inventoryController.likeInventory);
+router.put("/likeInventoryI/:id", inventoryController.likeInventoryItem);
 
-router.delete("/deleteInventory/:id", inventoryController.deleteInventory);
+router.delete("/deleteInventory/:id", inventoryController.deleteInventoryItem);
 
 module.exports = router;

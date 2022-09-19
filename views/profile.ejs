@@ -9,7 +9,7 @@
           </div>
           <div class="mt-5">
             <h2>Add an Item</h2>
-            <form action="/post/createInventoryItem" enctype="multipart/form-data" method="POST">
+            <form action="/inventory/createInventoryItem" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
                   <label for="title" class="form-label">Title</label>
                   <input type="text" class="form-control" id="title" name="title">
@@ -28,7 +28,7 @@
       </div>
       <div class="col-6">
         <ul class="row list-unstyled">
-        <% for(var i=0; i<inventoryItem.length; i++) {%>
+        <% for(var i=0; i<inventory.length; i++) {%>
           <li class="col-6 justify-content-between mt-5">
             <a href="/inventoryItem/<%= inventory[i]._id%>">
               <img class="img-fluid" src="<%= inventory[i].image%>">

@@ -4,7 +4,7 @@ const InventoryItem = require("../models/inventoryItem");
 module.exports = {
   getProfile: async (req, res) => {
     try {
-      const inventory = await Inventory.find({ user: req.user.id });
+      const inventory= await InventoryItem.find({ user: req.user.id });
       res.render("profile.ejs", { inventory: inventory, user: req.user });
     } catch (err) {
       console.log(err);
@@ -12,26 +12,26 @@ module.exports = {
   },
   getFeed: async (req, res) => {
     try {
-      const inventory = await Inventory.find().sort({ createdAt: "desc" }).lean();
+      const inventory = await InventoryItem.find().sort({ createdAt: "desc" }).lean();
       res.render("feed.ejs", { inventory: inventory });
     } catch (err) {
       console.log(err);
     }
   },
-  getInventory: async (req, res) => {
+  getInventoryItem: async (req, res) => {
     try {
-      const inventory = await Inventory.findById(req.params.id);
+      const inventory = await InventoryItem.findById(req.params.id);
       res.render("inventory.ejs", { inventory: inventory, user: req.user });
     } catch (err) {
       console.log(err);
     }
   },
-  createInventory: async (req, res) => {
+  createInventoryItem: async (req, res) => {
     try {
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
 
-      await Inventory.create({
+      await InventoryItem.create({
         title: req.body.title,
         image: result.secure_url,
         cloudinaryId: result.public_id,
@@ -45,28 +45,28 @@ module.exports = {
       console.log(err);
     }
   },
-  likeInventory: async (req, res) => {
+  likeInventoryItem: async (req, res) => {
     try {
-      await Inventory.findOneAndUpdate(
+      await InventoryItem.findOneAndUpdate(
         { _id: req.params.id },
         {
           $inc: { likes: 1 },
         }
       );
       console.log("Likes +1");
-      res.redirect(`/inventory/${req.params.id}`);
+      res.redirect(`/inventoryItem/${req.params.id}`);
     } catch (err) {
       console.log(err);
     }
   },
-  deleteInventory: async (req, res) => {
+  deleteInventoryItem: async (req, res) => {
     try {
       // Find post by id
-      let inventory = await Inventory.findById({ _id: req.params.id });
+      let inventory = await InventoryItem.findById({ _id: req.params.id });
       // Delete image from cloudinary
       await cloudinary.uploader.destroy(inventory.cloudinaryId);
       // Delete post from db
-      await Inventory.remove({ _id: req.params.id });
+      await InventoryItem.remove({ _id: req.params.id });
       console.log("Deleted Inventory Item");
       res.redirect("/profile");
     } catch (err) {
