@@ -5,26 +5,26 @@
 
     <div class="col-md-6 product-visual">
       <button>Continue Shopping</button>
-        <img class="img-fluid" src="<%= post.image%>" />
+        <img class="img-fluid" src="<%= inventoryItem.image%>" />
 
     </div>
 
     <div class="col-md-6 product-details" >
       <h1 class="product-logo-name"> Class Buddy</h1>
         <h2>
-          <%= post.title %>
+          <%= inventoryItem.title %>
         </h2>
         <p>
-          <%= post.caption %>
+          <%= inventoryItem.caption %>
         </p>
         <div class="update-buttons">
-          <form class="col-1" action="/post/likePost/<%= post.id %>?_method=PUT" method="POST">
+          <form class="col-1" action="/inventoryItem/likeInventory/<%= inventoryItem.id %>?_method=PUT" method="POST">
             <button class="btn btn-primary fa fa-heart" type="submit"></button>
           </form>
-          <h3 class="col-3">Likes: <%= post.likes %>
+          <h3 class="col-3">Likes: <%= inventoryItem.likes %>
           </h3>
-          <%if(post.user==user.id){ %>
-            <form action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST" class="col-3">
+          <%if(inventoryItem.user==user.id){ %>
+            <form action="/inventoryItem/deleteInventoryItem/<%= inventory.id %>?_method=DELETE" method="POST" class="col-3">
               <button class="btn btn-primary fa fa-trash" type="submit"></button>
             </form>
             <%}%>
