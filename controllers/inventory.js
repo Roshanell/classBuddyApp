@@ -59,7 +59,7 @@ module.exports = {
       console.log(err);
     }
   },
-  deleteInventoryItem: async (req, res) => {
+  deleteInventory: async (req, res) => {
     try {
       // Find post by id
       let inventory = await InventoryItem.findById({ _id: req.params.id });
