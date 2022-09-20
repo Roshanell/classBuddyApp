@@ -21,7 +21,7 @@ module.exports = {
   getInventoryItem: async (req, res) => {
     try {
       const inventory = await InventoryItem.findById(req.params.id);
-      res.render("inventory.ejs", { inventory: inventory, user: req.user });
+      res.render("inventoryItem.ejs", { inventory: inventory, user: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -59,7 +59,7 @@ module.exports = {
       console.log(err);
     }
   },
-  deleteInventory: async (req, res) => {
+  deleteInventoryItem: async (req, res) => {
     try {
       // Find post by id
       let inventory = await InventoryItem.findById({ _id: req.params.id });

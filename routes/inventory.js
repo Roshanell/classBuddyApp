@@ -9,7 +9,7 @@ router.get("/:id", ensureAuth, inventoryController.getInventoryItem);
 
 router.post("/createInventory", upload.single("file"), inventoryController.createInventoryItem);
 
-router.put("/likeInventoryI/:id", inventoryController.likeInventoryItem);
+router.put("/likeInventory/:id", inventoryController.likeInventoryItem);
 
 router.delete("/deleteInventory/:id", inventoryController.deleteInventoryItem);
 
