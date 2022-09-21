@@ -54,7 +54,7 @@ module.exports = {
         }
       );
       console.log("Likes +1");
-      res.redirect(`/inventoryItem/${req.params.id}`);
+      res.redirect(`/inventory/inventoryItem/${req.params.id}`);
     } catch (err) {
       console.log(err);
     }
