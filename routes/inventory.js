@@ -11,6 +11,6 @@ router.post("/createInventory", upload.single("file"), inventoryController.creat
 
 router.put("/likeInventory/:id", inventoryController.likeInventoryItem);
 
-router.delete("/deleteInventory/:id", inventoryController.deleteInventoryItem);
+router.delete("/deleteInventoryItem/:id", inventoryController.deleteInventoryItem);
 
 module.exports = router;
