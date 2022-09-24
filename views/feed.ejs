@@ -20,12 +20,13 @@
           <span> <%= inventory[i].price %> points</span>
           <p> <%= inventory[i].caption %> </p>
           <button class= "btn btn-active">Add to cart</button>
+
           
           <div class="card-actions justify-end">
 
             <div class="counter_conatiner">
-              <i id="add" class="fa-solid fa-cart-plus"></i>
-              <span id="output">0</span>
+              <i id="add" class="fa-solid fa-cart-plus" onclick="() => incrementQuantity(itemId)"></i>
+              <span id="output"><%= user.cart[i].quantity %></span>
               <i id="subtract" class="fa-solid fa-minus"></i>
             </div>
 

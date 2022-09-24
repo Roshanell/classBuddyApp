@@ -13,4 +13,8 @@ router.put("/likeInventory/:id", inventoryController.likeInventoryItem);
 
 router.delete("/deleteInventoryItem/:id", inventoryController.deleteInventoryItem);
 
+router.put("/cart", inventoryController.putCart)
+
+
+
 module.exports = router;

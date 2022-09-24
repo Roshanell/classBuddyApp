@@ -1,10 +1,12 @@
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
+const ItemSchema = new mongoose.Schema({ itemId: mongoose.Schema.Types.ObjectId, quantity: Number,  })
 
 const UserSchema = new mongoose.Schema({
   userName: { type: String, unique: true },
   email: { type: String, unique: true },
   password: String,
+  cart: {type: [ItemSchema] }
 });
 
 // Password hash middleware.

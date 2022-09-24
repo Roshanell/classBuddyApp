@@ -1,10 +1,11 @@
 const cloudinary = require("../middleware/cloudinary");
+const { db } = require("../models/inventoryItem");
 const InventoryItem = require("../models/inventoryItem");
 
 module.exports = {
   getProfile: async (req, res) => {
     try {
-      const inventory= await InventoryItem.find({ user: req.user.id });
+      const inventory = await InventoryItem.find({ user: req.user.id });
       res.render("profile.ejs", { inventory: inventory, user: req.user });
     } catch (err) {
       console.log(err);
@@ -12,8 +13,10 @@ module.exports = {
   },
   getFeed: async (req, res) => {
     try {
-      const inventory = await InventoryItem.find().sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { inventory: inventory });
+      const inventory = await InventoryItem.find()
+        .sort({ createdAt: "desc" })
+        .lean();
+      res.render("feed.ejs", { inventory: inventory, user: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -72,6 +75,25 @@ module.exports = {
       res.redirect("/profile");
     } catch (err) {
       res.redirect("/profile");
+    }
+  },
+  putCart: async (req, res) => {
+    try {
+      const itemId = req.body.itemId;
+      const direction = req.body.direction;
+      if (direction === -1) {
+        await User.updateOne(
+          { _id: req.user._id, "cart.itemId": itemId },
+          { $inc: { "cart.$.quantity": -1 } }
+        );
+        return;
+      }
+      await User.updateOne(
+        { _id: req.user._id, "cart.itemId": itemId },
+        { $inc: { "cart.$.quantity": 1 } }
+      );
+    } catch (err) {
+      res.redirect("/");
     }
   },
 };
