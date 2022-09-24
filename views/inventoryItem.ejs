@@ -17,6 +17,7 @@
         <p>
           <%= inventory.caption %>
         </p>
+        <%= inventory.price %>
         <div class="update-buttons">
           <form class="col-1" action="/inventory/likeInventory/<%= inventory.id %>?_method=PUT" method="POST">
             <button class="btn btn-primary fa fa-heart" type="submit"></button>

@@ -17,6 +17,12 @@ const InventoryItemSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+
+  price: {
+    type: Number,
+    required: true,
+  },
+
   likes: {
     type: Number,
     required: true,
