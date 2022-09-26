@@ -1,6 +1,7 @@
 const passport = require("passport");
 const validator = require("validator");
 const User = require("../models/User");
+const InventoryItem =require("../models/InventoryItem")
 
 exports.getLogin = (req, res) => {
   if (req.user) {
@@ -11,7 +12,7 @@ exports.getLogin = (req, res) => {
   });
 };
 
-exports.postLogin = (req, res, next) => {
+exports.postLogin = async (req, res, next) => {
   const validationErrors = [];
   if (!validator.isEmail(req.body.email))
     validationErrors.push({ msg: "Please enter a valid email address." });
@@ -42,6 +43,12 @@ exports.postLogin = (req, res, next) => {
       res.redirect(req.session.returnTo || "/profile");
     });
   })(req, res, next);
+
+    const inventory = await InventoryItem.find()
+    const cart = inventory.map((inventoryItem)=>{
+    return {quantity:0, itemId:inventoryItem._id}
+    }) 
+console.log(cart)
 };
 
 exports.logout = (req, res) => {

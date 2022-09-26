@@ -58,12 +58,6 @@ app.use(flash());
 app.use("/", mainRoutes);
 app.use("/inventory", inventoryRoutes);
 
-
-(async function ()  {
-  const inventory = await InventoryItem.find()
-}())
-
-
 //Server Running
 app.listen(process.env.PORT, () => {
   console.log("Server is running, you better catch it!");

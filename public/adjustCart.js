@@ -22,8 +22,6 @@ subtract.addEventListener("click", function () {
   }
 
   output.innerText = result;
-
-
   
 });
 

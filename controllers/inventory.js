@@ -77,29 +77,29 @@ module.exports = {
       res.redirect("/profile");
     }
   },
-  putCart: async (req, res) => {
-    try {
-      const itemId = req.body.itemId;
-      const direction = req.body.direction;
-      if (direction === -1) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: req.user._id, "cart.itemId": itemId },
-          { $inc: { "cart.$.quantity": -1 } },
-          { returnNewDocument: true,}
-        );
-        res.send(updatedUser.cart)
-        return;
-      }
-      const updatedUser = await User.findOneAndUpdate(
-        { _id: req.user._id, "cart.itemId": itemId },
-        { $inc: { "cart.$.quantity": 1 } },
-        {
-          returnNewDocument: true,
-        }
-      );
-      res.send(updatedUser.cart)
-    } catch (err) {
-      res.redirect("/");
-    }
-  },
+  // putCart: async (req, res) => {
+  //   try {
+  //     const itemId = req.body.itemId;
+  //     const direction = req.body.direction;
+  //     if (direction === -1) {
+  //       const updatedUser = await User.findOneAndUpdate(
+  //         { _id: req.user._id, "cart.itemId": itemId },
+  //         { $inc: { "cart.$.quantity": -1 } },
+  //         { returnNewDocument: true,}
+  //       );
+  //       res.send(updatedUser.cart)
+  //       return;
+  //     }
+  //     const updatedUser = await User.findOneAndUpdate(
+  //       { _id: req.user._id, "cart.itemId": itemId },
+  //       { $inc: { "cart.$.quantity": 1 } },
+  //       {
+  //         returnNewDocument: true,
+  //       }
+  //     );
+  //     res.send(updatedUser.cart)
+  //   } catch (err) {
+  //     res.redirect("/");
+  //   }
+  // },
 };
