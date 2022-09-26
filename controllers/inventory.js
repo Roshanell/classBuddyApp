@@ -82,16 +82,22 @@ module.exports = {
       const itemId = req.body.itemId;
       const direction = req.body.direction;
       if (direction === -1) {
-        await User.updateOne(
+        const updatedUser = await User.findOneAndUpdate(
           { _id: req.user._id, "cart.itemId": itemId },
-          { $inc: { "cart.$.quantity": -1 } }
+          { $inc: { "cart.$.quantity": -1 } },
+          { returnNewDocument: true,}
         );
+        res.send(updatedUser.cart)
         return;
       }
-      await User.updateOne(
+      const updatedUser = await User.findOneAndUpdate(
         { _id: req.user._id, "cart.itemId": itemId },
-        { $inc: { "cart.$.quantity": 1 } }
+        { $inc: { "cart.$.quantity": 1 } },
+        {
+          returnNewDocument: true,
+        }
       );
+      res.send(updatedUser.cart)
     } catch (err) {
       res.redirect("/");
     }

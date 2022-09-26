@@ -28,7 +28,7 @@ subtract.addEventListener("click", function () {
 });
 
 async function incrementQuantity(itemId){
-  await fetch('/cart',{
+  const response = await fetch('/cart',{
     method: 'PUT',
     body: {itemId, direction:1}
   }) 
