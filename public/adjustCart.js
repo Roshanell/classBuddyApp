@@ -1,24 +1,9 @@
-let add = document.querySelector("#add");
-let subtract = document.querySelector("#subtract");
-
-add.addEventListener("click", function () {
-  let output = document.querySelector("#output");
-  let result = Number(output.innerText) + 1;
-
-  if (result > 100) {
-    result = 0;
-  }
-
-  output.innerText = result;
-});
-
-subtract.addEventListener("click", function () {
-  let output = document.querySelector("#output");
-  let result = Number(output.innerText) - 1;
-
-  if (result < 0) {
-    result = 0;
-  }
-
-  output.innerText = result;
-});
+const removeCartItemButton = document.getElementsByClassName('btn btn-error')
+console.log(removeCartItemButton)
+for (let i = 0; i<removeCartItemButton.length; i++){
+  const button = removeCartItemButton[i]
+  button.addEventListener('click', function(event){
+    const buttonClicked = event.target
+    buttonClicked.parentElement.parentElement.remove()
+  })
+}

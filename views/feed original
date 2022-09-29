@@ -11,3 +11,7 @@
         </ul>
     </div>
   </div>  
+
+
+  <p><strong>User Name</strong>: <%= user.userName %></p>
+  <p><strong>Email</strong>: <%= user.email %></p>
