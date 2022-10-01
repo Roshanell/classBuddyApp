@@ -28,26 +28,49 @@
                   <th></th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody class="cart-items">
                 <!-- row 1 -->
                 <tr class="cart-row">
-                  <td>
+                  <td class="cart-items">
                     <div class="flex items-center space-x-3">
-                      <div class="item-image">
+                      <div class="item-image cart-item-image">
                         <div class="mask mask-squircle w-12 h-12">
                           <img src="https://i.imgur.com/bTEsJU3.jpg" alt="Item Image Tailwind CSS Component" />
                         </div>
                       </div>
                       <div>
-                        <div class="font-bold">Cone</div>
+                        <div class="cart-item-title font-bold">Cone</div>
                       </div>
                     </div>
                   </td>
                   <td>
-                    <div class="text-sm opacity-50">10 points</div>
+                    <div class="cart-price text-sm opacity-50">10 points</div>
                   </td>
                   <td>
-                    <input type="number" value="1">
+                    <input class="cart-quantity-input" type="number" value="1">
+                  </td>
+                  <td>
+                    <button class="btn btn-error">Error</button>
+                  </td>
+                </tr>
+                <tr class="cart-row">
+                  <td class="cart-items">
+                    <div class="flex items-center space-x-3">
+                      <div class="item-image cart-item-image">
+                        <div class="mask mask-squircle w-12 h-12">
+                          <img src="https://i.imgur.com/bTEsJU3.jpg" alt="Item Image Tailwind CSS Component" />
+                        </div>
+                      </div>
+                      <div>
+                        <div class="cart-item-title font-bold">Cone</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cart-price text-sm opacity-50">10 points</div>
+                  </td>
+                  <td>
+                    <input class="cart-quantity-input" type="number" value="2">
                   </td>
                   <td>
                     <button class="btn btn-error">Error</button>
@@ -81,3 +104,5 @@
     </div>
   </div>
 </div>
+
+<script src="/adjustCart.js"></script>
