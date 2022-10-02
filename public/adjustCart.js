@@ -1,3 +1,4 @@
+
 const removeCartItemButtons = document.getElementsByClassName('btn btn-error')
 for (let i = 0; i<removeCartItemButtons.length; i++){
   const button = removeCartItemButtons[i]
@@ -11,15 +12,15 @@ for (let i = 0; i<removeCartItemButtons.length; i++){
 function updateCartTotal(){
   const cartItemArea = document.getElementsByClassName('cart-items')[0]
   const cartRows = cartItemArea.getElementsByClassName('cart-row')
-  const total = 0
+  let total = 0
   for (let i = 0; i < cartRows.length; i++){
     const cartRow = cartRows[i]
     const priceElement = cartRow.getElementsByClassName('cart-price')[0]
     const quantityElement =cartRow.getElementsByClassName('cart-quantity-input')[0]
-    const price = priceElement.innerText
+    const price = priceElement.textContent
     const quantity = quantityElement.value
-    console.log(quantity * price)
+    total = total + (price * quantity)
    
   }
-
+document.getElementsByClassName('cart-total-price')[0].textContent = `${total} points`
 }
