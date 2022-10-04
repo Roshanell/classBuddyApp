@@ -30,7 +30,6 @@ module.exports = {
     try {
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
-
       await InventoryItem.create({
         title: req.body.title,
         image: result.secure_url,

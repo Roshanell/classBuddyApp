@@ -1,44 +1,36 @@
 <%- include('partials/header') -%>
-<%- include('partials/feedHeader') -%>
+  <%- include('partials/feedHeader') -%>
 
-  <div class="inventory-container flex flex-wrap justify-around">
-
-    <% for(var i=0; i<inventory.length; i++) {%>
-      <div class="card w-96 bg-base-100 shadow-xl m-8 basis-1/4">
-        <figure>
-          <a href="/inventory/inventoryItem/<%= inventory[i]._id%>">
-            <img class="object-fill w-96 h-48" src="<%= inventory[i].image%>" />
-          </a>
-        
-        </figure>
-
-        <div class="card-body">
-          <h2 class="card-title">
-            <%= inventory[i].title %>
-            <div class="badge badge-secondary">NEW</div>
-          </h2>
-          <span> <%= inventory[i].price %> points</span>
-          <p> <%= inventory[i].caption %> </p>
-          <button class= "btn btn-active">Add to cart</button>
-          
-          <div class="card-actions justify-end">
-
-            <div class="counter_conatiner">
-              <i id="add" class="fa-solid fa-cart-plus"></i>
-              <span id="output">0</span>
-              <i id="subtract" class="fa-solid fa-minus"></i>
+    <div class="inventory-container flex flex-wrap justify-around shop-item">
+      <% for(var i=0; i<inventory.length; i++) {%>
+        <div class="card w-96 bg-base-100 shadow-xl m-8 basis-1/4 shop-item-id">
+          <figure>
+            <a href="/inventory/inventoryItem/<%= inventory[i]._id%>">
+              <img class="object-fill w-96 h-48 shop-item-image" src="<%= inventory[i].image%>" />
+            </a>
+          </figure>
+          <div class="card-body shop-item">
+            <h2 class="card-title shop-item-title">
+              <%= inventory[i].title %>
+                <div class="badge badge-secondary">NEW</div>
+            </h2>
+            <span class="shop-item-price">
+              <%= inventory[i].price %> points
+            </span>
+            <p>
+              <%= inventory[i].caption %>
+            </p>
+            <button class="btn btn-active shop-item-button">Add to cart</button>
+            <div class="card-actions justify-end">
+              <div class="badge badge-outline">Fashion</div>
+              <div class="badge badge-outline">Products</div>
             </div>
-
-            <div class="badge badge-outline">Fashion</div>
-            <div class="badge badge-outline">Products</div>
           </div>
         </div>
-      </div>
-      <% } %>
-  </div>
+        <% } %>
+    </div>
 
 
 
 
-  <%- include('partials/footer') -%>
-  <script src="/adjustCart.js"></script>
+    <%- include('partials/footer') -%>
