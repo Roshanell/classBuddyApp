@@ -1,6 +1,6 @@
 function removeCartItem(event) {
   const buttonClicked = event.target;
-  buttonClicked.parentElement.remove();
+  buttonClicked.parentElement.parentElement.remove();
   updateCartTotal();
 }
 window.onload = () => {
@@ -22,7 +22,17 @@ window.onload = () => {
     const button = addToCartButtons[i];
     button.addEventListener("click", addToCartClicked);
   }
+  document.getElementsByClassName("rounded-full")[0].addEventListener('click', purchaseClicked)
 };
+
+function purchaseClicked(){
+  alert('Thank you for your purchase!')
+  const cartItems = document.getElementsByClassName('cart-items')[0]
+  while (cartItems.hasChildNodes()){
+    cartItems.removeChild(cartItems.firstChild)
+  }
+  updateCartTotal()
+}
 
 function quantityChanged(event) {
   const input = event.target;
@@ -49,7 +59,7 @@ function addItemToCart(title, price, imageSrc) {
   const cartItems = document.getElementsByClassName("cart-items")[0];
   const cartItemNames = cartItems.getElementsByClassName('cart-item-title')
   for (let i = 0; i < cartItemNames.length; i++){
-      if(cartItemNames[i].innerText === title){
+      if(cartItemNames[i].innerText == title){
         alert('This item is already added to your cart.')
         return
       }
