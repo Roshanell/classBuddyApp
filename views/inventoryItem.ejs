@@ -1,50 +1,28 @@
 <%- include('partials/header') -%>
+<%- include('partials/feedHeader') -%>
 
-<div class="container inventory-item-container">
-  <div class="row gx-5 justify-content-center">
-
-    <div class="col-md-6 product-visual">
-      <button>Continue Shopping</button>
-        <img class="img-fluid" src="<%= inventory.image%>" />
-
-    </div>
-
-    <div class="col-md-6 product-details" >
-      <h1 class="product-logo-name"> Class Buddy</h1>
-        <h2>
-          <%= inventory.title %>
-        </h2>
-        <p>
-          <%= inventory.caption %>
-        </p>
-        <%= inventory.price %>
-        <div class="update-buttons">
-          <form class="col-1" action="/inventory/likeInventory/<%= inventory.id %>?_method=PUT" method="POST">
-            <button class="btn btn-primary fa fa-heart" type="submit"></button>
+<!-- start new card here -->
+<h1 class="mx-8 ... text-3xl font-medium py-8"> Inventory Item Details </h1>
+<div class="card lg:card-side bg-base-100 shadow-xl mx-8 ...">
+  <figure><img src="<%= inventory.image%>" width="387" height="387" alt="Album"/></figure>
+  <div class="card-body">
+    <h2 class="card-title"><%= inventory.title %></h2>
+    <p><%= inventory.caption %></p>
+    <p><%= inventory.price %> points</p>
+    <div class="card-actions justify-start">
+      <div class="update-buttons flex flex-row">
+        <p>Likes: <%= inventory.likes %></p>
+        <form action="/inventory/likeInventory/<%= inventory.id %>?_method=PUT" method="POST">
+          <button class="btn btn-primary fa fa-heart ml-2 ..." type="submit"></button>
+          <button class="btn btn-primary fa fa-trash mx-8 ..." type="submit"></button>
+        </form>
+        <%if(inventory.user==user.id){ %>
+          <form action="/inventory/deleteInventoryItem/<%= inventory.id %>?_method=DELETE" method="POST">
           </form>
-          <h3 class="col-3">Likes: <%= inventory.likes %>
-          </h3>
-          <%if(inventory.user==user.id){ %>
-            <form action="/inventory/deleteInventoryItem/<%= inventory.id %>?_method=DELETE" method="POST" class="col-3">
-              <button class="btn btn-primary fa fa-trash" type="submit"></button>
-            </form>
-            <%}%>
-        </div>
-        <h4>20</h4>
-        <button>+1</button>
-        <button>Add to cart</button>
-
+          <%}%>
+      </div>
     </div>
-
   </div>
-
 </div>
-
-<div class="col-6 mt-5 profile-feed-button" >
-  <a class="btn btn-primary" href="/profile">Return to Profile</a>
-  <a class="btn btn-primary" href="/feed">Return to Feed</a>
-</div>
-
-
 
 <%- include('partials/footer') -%>

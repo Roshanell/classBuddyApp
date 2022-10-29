@@ -13,32 +13,31 @@
               <div>
                 <label for="caption" class="form-label">Description</label>
                 <textarea class="form-control" id="caption" name="caption"></textarea>
-              </div>
-              
-              <div class="form-control">
-                <label for= "price" class="label">
-                  <span class="label-text">Enter amount</span>
-                </label>
-                <label class="input-group">
-                  <input type="text" placeholder="10" class="input input-bordered" name="price" />
-                  <span>points</span>
-                </label>
-              </div>
+              </div>     
 
               <div>
                 <label for="imgUpload" class="form-label">Image</label>
                 <input type="file" class="form-control" id="imageUpload" name="file">
               </div>
+
+              <div class="form-label">
+                <label for= "price" class="label">Enter an Amount
+                  <!-- <span class="label-text">Enter amount</span> -->
+                </label>
+                <label class="input-group">
+                  <input type="text" placeholder="How many points?" class="input input-bordered" name="price" />
+                  <span>points</span>
+                </label>
+              </div>
+
               <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+
             </form>
           </div>
       </div>
     
         <!-- <div class="row justify-content-center mt-5">
           <a class="btn btn-primary" href="/feed">Return to Feed</a>
-        </div>   -->
-      </div>  
-    </div>
-  </div>
+        </div>   -->  
 </div>
 <%- include('partials/footer') -%>
