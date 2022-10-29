@@ -70,7 +70,7 @@ module.exports = {
       console.log("Deleted Inventory Item");
       res.redirect("/profile");
     } catch (err) {
-      res.redirect("/profile");
+      console.error(err);
     }
   },
 };
