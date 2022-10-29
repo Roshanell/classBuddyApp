@@ -1,7 +1,10 @@
 <%- include('partials/header') -%>
-    <main class="container">
-        <div class="row justify-content-center">
-            <section class="col-6 mt-5">
+<%- include('partials/signinLoginHeader') -%>
+
+<main class="container">
+  <div class="row justify-content-center">
+    <section class="col-6 mt-5">
+              <h1 class="h1 justify-content-center">Sign Up </h1>
                 <% if (locals.messages.errors) { %>
                     <% messages.errors.forEach( el => { %>
                         <div class="alert alert-danger"><%= el.msg %></div>

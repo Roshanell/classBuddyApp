@@ -4,7 +4,7 @@
 <!-- start new card here -->
 <h1 class="mx-8 ... text-3xl font-medium py-8"> Inventory Item Details </h1>
 <div class="card lg:card-side bg-base-100 shadow-xl mx-8 ...">
-  <figure><img src="<%= inventory.image%>" width="387" height="387" alt="Album"/></figure>
+  <figure><img src="<%= inventory.image%>" class="card-image" alt="Inventory Item"/></figure>
   <div class="card-body">
     <h2 class="card-title"><%= inventory.title %></h2>
     <p><%= inventory.caption %></p>
@@ -14,10 +14,10 @@
         <p>Likes: <%= inventory.likes %></p>
         <form action="/inventory/likeInventory/<%= inventory.id %>?_method=PUT" method="POST">
           <button class="btn btn-primary fa fa-heart ml-2 ..." type="submit"></button>
-          <button class="btn btn-primary fa fa-trash mx-8 ..." type="submit"></button>
         </form>
         <%if(inventory.user==user.id){ %>
           <form action="/inventory/deleteInventoryItem/<%= inventory.id %>?_method=DELETE" method="POST">
+            <button class="btn btn-primary fa fa-trash mx-8 ..." type="submit"></button>
           </form>
           <%}%>
       </div>
