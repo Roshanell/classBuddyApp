@@ -11,7 +11,7 @@ Tech used: HTML, CSS, JavaScript, Node, Express, Tailwind
 
 # Optimizations:
 
-I'd like to refactor the code in otder to add a purchase log so that accounts with administrative acess can see what was purchased. I'd like to also add a way for administrators to add points to accounts that are made.
+I'd like to refactor the code in order to add a purchase log so that accounts with administrative acess can see what was purchased. I'd like to also add a way for administrators to add points to student accounts that are made.
 
 # Lessons Learned:
 
