@@ -5,19 +5,19 @@ Link to project: https://classbuddy.cyclic.app/
 
 
 
-#How It's Made:
+# How It's Made:
 Tech used: HTML, CSS, JavaScript, Node, Express, Tailwind
 
 
-#Optimizations:
+# Optimizations:
 
 I'd like to refactor the code in otder to add a purchase log so that accounts with administrative acess can see what was purchased. I'd like to also add a way for administrators to add points to accounts that are made.
 
-#Lessons Learned:
+# Lessons Learned:
 
 I prefer to work with front end concepts more than back end!
 
-#Examples:
+# Examples:
 
 Take a look at these couple examples that I have in my own portfolio:
 
