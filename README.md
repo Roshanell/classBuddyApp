@@ -1,4 +1,4 @@
-## Class Budy 
+## Class Buddy 
 ClassBuddy will give teachers a platform reinforce positive behaviors by using an incentive-based application that promotes positive classroom behaviors
 
 Link to project: https://classbuddy.cyclic.app/
